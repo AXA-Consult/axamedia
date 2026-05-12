@@ -219,10 +219,10 @@ setTimeout(() => {
         className="relative min-h-screen overflow-x-hidden bg-white text-[#1A2430]"
       >
         <div
-          className={`fixed inset-x-0 top-0 z-[120] h-[10px] transition-all duration-700 ease-out ${
-            isLoaded ? "opacity-100" : "opacity-0"
-          }`}
-        >
+  className={`fixed inset-x-0 top-0 z-[160] h-[10px] transition-all duration-700 ease-out ${
+    isLoaded ? "opacity-100" : "opacity-0"
+  }`}
+>
           <Image
             src="/line-axa.png"
             alt=""
