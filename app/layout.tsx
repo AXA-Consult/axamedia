@@ -6,9 +6,9 @@ import type { ReactNode } from "react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AXA Consult | Marknadskonsult i Uppsala och Falun",
+  title: "AXA Consult – Marknadskonsult i Uppsala och Falun",
   description:
-    "AXA Consult hjälper företag att få struktur i marknadsföringen, prioritera rätt och driva arbetet framåt.",
+    "AXA Consult är en marknadskonsult i Uppsala och Falun. Vi arbetar med en handfull kunder åt gången – nära, brett och utan onödiga möten.",
   robots: {
     index: true,
     follow: true,

@@ -122,16 +122,15 @@ export default function BokaMote() {
                   </p>
 
                   <h1 className="mt-3 text-[42px] font-semibold leading-[0.95] tracking-[-0.05em] md:text-[64px]">
-                    Låt oss prata om
+                    Bara ett samtal
                     <br />
-                    vad som skulle göra
-                    <br />
-                    störst skillnad.
+                    om vad ni behöver.
                   </h1>
 
                   <p className="mt-6 max-w-2xl text-[18px] leading-[1.8] text-white/80 md:text-[20px]">
-                    Ett första samtal är ett enkelt sätt att prata om nuläge,
-                    behov och vad som vore mest värdefullt att börja med.
+                    Vi pratar om vart ni står, vad som inte fungerar och
+                    vad som vore rimligt att börja med. Ni behöver inte ha
+                    allt klart – det är därför vi pratas vid.
                   </p>
                 </div>
 
@@ -141,8 +140,8 @@ export default function BokaMote() {
                       Vad vi pratar om
                     </p>
                     <p className="mt-3 text-[17px] leading-[1.75] text-white/90">
-                      Er marknadsföring idag, vad som fungerar, vad som känns
-                      oklart och vad som sannolikt borde prioriteras först.
+                      Er marknadsföring idag, vad som fungerar, vad som inte
+                      fungerar och vad som borde prioriteras först.
                     </p>
                   </div>
 
@@ -151,8 +150,7 @@ export default function BokaMote() {
                       Innan ni skickar
                     </p>
                     <p className="mt-3 text-[17px] leading-[1.75] text-white/90">
-                      Ni behöver inte ha allt klart. Skriv bara kort vad ni
-                      funderar på så tar vi det därifrån.
+                      Skriv bara kort vad ni funderar på. Vi tar det därifrån.
                     </p>
                   </div>
 
@@ -161,8 +159,7 @@ export default function BokaMote() {
                       Efteråt
                     </p>
                     <p className="mt-3 text-[17px] leading-[1.75] text-white/90">
-                      Ni får ett tydligare grepp om vad nästa steg skulle kunna
-                      vara — enkelt, konkret och utan krångel.
+                      Ni vet vad nästa steg är. Konkret, enkelt, utan krångel.
                     </p>
                   </div>
                 </div>
@@ -227,14 +224,14 @@ export default function BokaMote() {
 
                       <div>
                         <label htmlFor="message" className="text-sm font-medium text-[#2f2f35]">
-                          Kort om behov
+                          Vad handlar det om?
                         </label>
                         <textarea
                           id="message"
                           name="message"
                           rows={5}
                           autoComplete="off"
-                          placeholder="Beskriv kort vad ni vill ha hjälp med"
+                          placeholder="Beskriv kort vad ni funderar på"
                           required
                           className="mt-2 w-full rounded-xl border border-[#cfc6ba] bg-white px-4 py-3 text-[#111827] placeholder-[#6b7280] outline-none transition hover:border-[#bcae98] focus:border-[#8a5a14] focus:shadow-[0_0_0_3px_rgba(138,90,20,0.18)]"
                         />

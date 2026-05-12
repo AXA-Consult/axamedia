@@ -108,7 +108,7 @@ setTimeout(() => {
     {
       question: "Vad gör en marknadskonsult?",
       answer:
-        "En marknadskonsult hjälper företag att få tydligare riktning, bättre struktur och mer framdrift i marknadsföringen – både strategiskt och praktiskt.",
+        "En marknadskonsult hjälper företag att få tydligare riktning, bättre struktur och mer fart i marknadsföringen – både strategiskt och praktiskt.",
     },
     {
       question: "Vilka företag passar AXA Consult för?",
@@ -140,7 +140,7 @@ setTimeout(() => {
  const services = [
   {
     title: "Strategi & prioritering",
-    text: "Vi hjälper er sätta riktning, välja fokus och prioritera det som faktiskt gör störst skillnad.",
+    text: "Vi hjälper er sätta riktning, välja fokus och prioritera rätt.",
   },
   {
     title: "SEO & hemsida",
@@ -180,7 +180,7 @@ setTimeout(() => {
   },
   {
     title: "Kreativt content",
-    text: "Vi tar fram idéer för innehåll, UGC och influencers som kan skapa räckvidd och engagemang.",
+    text: "Vi tar fram idéer för innehåll, UGC och influencers som når fler och berör.",
   },
   {
     title: "Sponsring & samarbeten",
@@ -322,7 +322,7 @@ setTimeout(() => {
                   isLoaded ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
                 } transition-all duration-700`}
               >
-                Marknadsföring för företag som vill framåt
+                Marknadskonsult i Uppsala och Falun
               </p>
 
               <h1
@@ -330,9 +330,9 @@ setTimeout(() => {
                   isLoaded ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
                 } transition-all duration-700`}
               >
-                Marknadsföring som drivs framåt
+                Vi är en byrå.
                 <span className="block bg-gradient-to-r from-[#8fb3da] via-[#dce8f6] to-[#F5B74E] bg-clip-text pb-[0.08em] text-transparent">
-                  inte bara planeras
+                  Men ändå inte en byrå.
                 </span>
               </h1>
 
@@ -341,9 +341,10 @@ setTimeout(() => {
                   isLoaded ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
                 } transition-all duration-700 delay-100`}
               >
-                AXA Consult hjälper företag att få struktur i marknadsföringen,
-                prioritera rätt och driva arbetet framåt. Ni får samma bredd som
-                från en mediabyrå – men i ett närmare, mer personligt samarbete.
+                Vi arbetar med endast en handfull kunder – för att kunna vara nära
+                och sitta på er sida av bordet, inte bara skicka över en rapport och
+                försvinna. Oavsett om det gäller SEO, Google Ads, sociala medier eller
+                något annat. Det vi inte gör själva fixar vi genom vårt nätverk.
               </p>
 
               <div
@@ -384,7 +385,7 @@ setTimeout(() => {
                     },
                     {
                       title: "Stöd i det löpande arbetet",
-                      text: "Vi håller ihop marknadsföringen så att arbetet faktiskt rör sig framåt.",
+                      text: "Vi håller ihop marknadsföringen och ser till att det rör sig.",
                       icon: "↗",
                     },
                     {
@@ -473,20 +474,20 @@ setTimeout(() => {
       </p>
 
       <h2 className="mt-4 text-[36px] font-semibold leading-[1.04] tracking-[-0.055em] text-[#0f1724] md:text-[52px]">
-        Vi tror på marknadsföring som går att förstå, prioritera och genomföra
+        Vi är det ni vill att vi ska vara.
       </h2>
     </div>
 
     <p className="text-[18px] leading-[1.85] text-[#3f4a5a] md:text-[20px]">
-      För många företag blir marknadsföring lätt en lista av kanaler, idéer och
-      saker som borde göras. Vi tror att det börjar i andra änden: med riktning,
-      affären och vad som är viktigast just nu.
+      Hos oss är du inte rad 47 i ett CRM-system. Vi jobbar med ett
+      begränsat antal kunder åt gången – för att vi ska kunna sätta oss
+      in i er verksamhet och bidra med något som gör skillnad.
     </p>
 
     <p className="text-[18px] leading-[1.85] text-[#3f4a5a] md:text-[20px]">
-      AXA startades för att vara ett närmare stöd i det arbetet. Inte bara någon
-      som levererar enstaka insatser, utan en partner som hjälper er välja rätt,
-      hålla ihop helheten och få saker gjorda.
+      Marknadsföring på fler kanaler än bara Google och Meta. Strategi,
+      SEO, annonsering, innehåll, grafik – vi hanterar det mesta. Och det
+      vi inte gör själva fixar vi genom vårt nätverk.
     </p>
   </div>
 </section>
@@ -505,11 +506,10 @@ setTimeout(() => {
                 Tjänster
               </p>
               <h2 className="mt-3 text-3xl font-semibold trackinng-tight text-slate-950 sm:text-4xl">
-                Det här kan vi hjälpa er med
+                Det här kör vi med
               </h2>
               <p className="mt-4 text-lg leading-8 text-slate-600">
-                Upplägget anpassas efter era mål, resurser och hur mycket stöd
-                ni behöver i vardagen.
+                Ni väljer vad ni behöver. Vi kör.
               </p>
             </div>
 
@@ -548,9 +548,8 @@ setTimeout(() => {
                   Ett enklare sätt att få ordning på marknadsföringen
                 </h2>
                 <p className="mt-4 text-lg leading-8 text-slate-200">
-                  Vi tror på ett arbetssätt som är nära, tydligt och lätt att
-                  förstå. Det ska vara enkelt att veta vad som händer, varför det
-                  görs och vad nästa steg är.
+                  Nära, tydligt och utan onödiga möten. Ni ska alltid veta vad som
+                  händer, varför det görs och vad som är nästa steg.
                 </p>
               </div>
 
@@ -569,7 +568,7 @@ setTimeout(() => {
                   {
                     number: "03",
                     title: "Genomförande",
-                    text: "Vi driver arbetet framåt med rätt insatser, rätt tempo och tydlig kommunikation längs vägen.",
+                    text: "Vi kör med rätt insatser, rätt tempo och tydlig kommunikation längs vägen.",
                   },
                   {
                     number: "04",
@@ -613,14 +612,12 @@ setTimeout(() => {
                   Samarbete
                 </p>
                 <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                  Vi jobbar nära ett fåtal kunder åt gången
+                  Vi arbetar endast med en handfull kunder
                 </h2>
                 <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-                  Det gör att vi kan sätta oss in i verksamheten på riktigt,
-                  förstå prioriteringarna och bidra med både strategiskt och
-                  operativt stöd. Målet är inte att göra mer för sakens skull,
-                  utan att hjälpa er framåt på ett sätt som känns relevant och
-                  hållbart.
+                  Det gör att vi kan sätta oss in i verksamheten, förstå
+                  prioriteringarna och bidra med både strategi och genomförande.
+                  Målet är inte att göra mer – utan att göra rätt. Alla våra kunder är viktiga.
                 </p>
               </div>
 
@@ -706,12 +703,12 @@ setTimeout(() => {
         </p>
 
         <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-          Vill du se om vi är rätt för varandra?
+          Låter det här som något för er?
         </h2>
 
         <p className="mt-4 max-w-xl text-lg leading-8 text-slate-200">
-          Hör av dig så tar vi ett första samtal om nuläge, behov och
-          vad som skulle vara ett rimligt nästa steg för er.
+          Hör av dig så pratar vi. Inget sälj, inget krångel –
+          bara ett samtal om vart ni står och vad ni behöver.
         </p>
 
         <div className="mt-8 space-y-3 text-slate-200">

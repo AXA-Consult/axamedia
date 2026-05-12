@@ -12,14 +12,14 @@ type Slide = {
 
 const slides: Slide[] = [
   {
-    title: "En partner, inte bara en leverantör",
-    text: "Vi sätter oss in i er verksamhet, era mål och er vardag. Det gör att marknadsföringen blir mer relevant, mer genomförbar och närmare affären.",
+    title: "Vi sitter på er sida av bordet",
+    text: "Vi lär känna er verksamhet, era mål och er vardag – så att marknadsföringen blir genomförbar och närmare affären.",
     videoSrc: "/video/partner-webb.mp4",
     poster: "/partner-webb.webp",
   },
   {
-    title: "Fokus på det som faktiskt gör skillnad",
-    text: "Istället för att göra allt samtidigt hjälper vi er att prioritera rätt insatser utifrån läge, potential och vad som faktiskt kan ge effekt.",
+    title: "Fokus på det som gör skillnad",
+    text: "Istället för att göra allt på en gång hjälper vi er prioritera rätt utifrån läge, potential och vad som kan ge effekt.",
     videoSrc: "/video/fokus-webb.mp4",
     poster: "/fokus-webb.webp",
   },
@@ -103,9 +103,8 @@ export default function WorkStyleCarousel() {
                 Ett närmare sätt att arbeta med marknadsföring
               </h2>
               <p className="mt-5 max-w-3xl text-[17px] leading-[1.8] text-[#5b6678] md:text-[19px]">
-                Ni får ett stöd som kombinerar affärsförståelse,
-                marknadsstrategi och genomförande. Tanken är enkel: mindre
-                fluff, mer riktning och bättre fart i rätt saker.
+                Nära, brett och utan onödiga möten. Ni ska alltid veta vad som
+                händer och varför.
               </p>
             </div>
 

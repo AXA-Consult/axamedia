@@ -4,9 +4,9 @@ export default function SchemaMarkup() {
     "@type": "ProfessionalService",
     name: "AXA Consult",
     url: "https://www.axaconsult.se",
-    slogan: "Marknadsföring för företag som vill framåt",
+    slogan: "Vi är en byrå. Men ändå inte en byrå.",
     description:
-      "AXA Consult hjälper företag att få struktur i marknadsföringen, prioritera rätt och driva arbetet framåt. Ni får samma bredd som från en mediabyrå – men i ett närmare, mer personligt samarbete.",
+      "AXA Consult är en marknadskonsult i Uppsala och Falun. Vi arbetar med en handfull kunder åt gången – nära, brett och utan onödiga möten.",
     telephone: "+46760353560",
     email: "info@axaconsult.se",
 
@@ -47,7 +47,7 @@ export default function SchemaMarkup() {
           "@type": "Service",
           name: "Strategi & prioritering",
           description:
-            "Vi hjälper er sätta riktning, välja fokus och prioritera det som faktiskt gör skillnad.",
+            "Vi hjälper er sätta riktning, välja fokus och prioritera rätt.",
         },
       },
       {

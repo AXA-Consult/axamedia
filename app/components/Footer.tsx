@@ -37,8 +37,7 @@ export default function Footer() {
             className="opacity-90"
           />
           <p className="mt-6 text-[14px] leading-[1.7] text-white/68">
-            Marknadsföring, strategi och genomförande för företag som vill få
-            tydligare riktning och bättre fart i rätt saker.
+            Få kunder. Ordentlig hjälp. Inga konstigheter.
           </p>
         </div>
 
