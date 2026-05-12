@@ -169,21 +169,25 @@ export default function WorkStyleCarousel() {
                       <div className="mt-auto flex gap-2">
                         {slides.map((_, dotIndex) => (
                           <button
-                            key={dotIndex}
-                            type="button"
-                            onMouseDown={(e) => e.preventDefault()}
-                            onClick={() => {
-                              setHasInteracted(true);
-                              setActiveIndex(dotIndex);
-                            }}
-                            aria-label={`Gå till slide ${dotIndex + 1}`}
-                            aria-pressed={activeIndex === dotIndex}
-                            className={`h-2.5 rounded-full transition-all ${
-                              activeIndex === dotIndex
-                                ? "w-8 bg-[#F5B74E]"
-                                : "w-2.5 bg-[#d7cdb8]"
-                            }`}
-                          />
+  key={dotIndex}
+  type="button"
+  onMouseDown={(e) => e.preventDefault()}
+  onClick={() => {
+    setHasInteracted(true);
+    setActiveIndex(dotIndex);
+  }}
+  aria-label={`Gå till slide ${dotIndex + 1}`}
+  aria-pressed={activeIndex === dotIndex}
+  className="flex h-11 w-11 items-center justify-center rounded-full"
+>
+  <span
+    className={`h-2.5 rounded-full transition-all ${
+      activeIndex === dotIndex
+        ? "w-8 bg-[#F5B74E]"
+        : "w-2.5 bg-[#d7cdb8]"
+    }`}
+  />
+</button>
                         ))}
                       </div>
 
