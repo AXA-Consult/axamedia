@@ -309,10 +309,10 @@ setTimeout(() => {
         <section className="relative overflow-hidden bg-[#08121d] px-6 pb-28 pt-[165px] md:px-10 md:pb-32 md:pt-[205px] lg:px-16 lg:pb-36 lg:pt-[235px]">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-[linear-gradient(135deg,#07111c_0%,#0a1724_38%,#102238_72%,#142b44_100%)]" />
-            <div className="hero-particles absolute inset-0" />
-            <div className="hero-wave absolute inset-x-0 bottom-0 h-[42%]" />
-            <div className="absolute right-[6%] top-[22%] h-[420px] w-[420px] rounded-full bg-[#F5B74E]/20 blur-[140px]" />
-            <div className="absolute left-[2%] bottom-[8%] h-[360px] w-[360px] rounded-full bg-[#8fb3da]/18 blur-[130px]" />
+           <div className="hidden md:block hero-particles absolute inset-0" />
+<div className="hidden md:block hero-wave absolute inset-x-0 bottom-0 h-[42%]" />
+<div className="hidden md:block absolute right-[6%] top-[22%] h-[420px] w-[420px] rounded-full bg-[#F5B74E]/20 blur-[140px]" />
+<div className="hidden md:block absolute left-[2%] bottom-[8%] h-[360px] w-[360px] rounded-full bg-[#8fb3da]/18 blur-[130px]" />
           </div>
 
           <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:items-start">
@@ -420,52 +420,60 @@ setTimeout(() => {
         
 
           <style jsx>{`
-            .hero-particles {
-              opacity: 0.48;
-              background-image:
-                radial-gradient(circle, rgba(245, 183, 78, 0.48) 1px, transparent 1.8px),
-                radial-gradient(circle, rgba(143, 179, 218, 0.38) 1px, transparent 1.7px),
-                radial-gradient(circle, rgba(255, 255, 255, 0.22) 0.7px, transparent 1.4px);
-              background-size: 96px 88px, 142px 132px, 210px 190px;
-              background-position: 0 0, 42px 64px, 90px 30px;
-              animation: particlesMove 32s linear infinite;
-            }
+  .hero-particles {
+    opacity: 0.48;
+    background-image:
+      radial-gradient(circle, rgba(245, 183, 78, 0.48) 1px, transparent 1.8px),
+      radial-gradient(circle, rgba(143, 179, 218, 0.38) 1px, transparent 1.7px),
+      radial-gradient(circle, rgba(255, 255, 255, 0.22) 0.7px, transparent 1.4px);
+    background-size: 96px 88px, 142px 132px, 210px 190px;
+    background-position: 0 0, 42px 64px, 90px 30px;
+  }
 
-            .hero-wave {
-              opacity: 0.7;
-              background:
-                radial-gradient(ellipse at 20% 85%, rgba(143, 179, 218, 0.32), transparent 34%),
-                radial-gradient(ellipse at 78% 75%, rgba(245, 183, 78, 0.28), transparent 36%),
-                linear-gradient(115deg, transparent 0%, rgba(143, 179, 218, 0.15) 38%, rgba(245, 183, 78, 0.18) 62%, transparent 100%);
-              filter: blur(1px);
-              animation: waveMove 12s ease-in-out infinite alternate;
-            }
+  .hero-wave {
+    opacity: 0.7;
+    background:
+      radial-gradient(ellipse at 20% 85%, rgba(143, 179, 218, 0.32), transparent 34%),
+      radial-gradient(ellipse at 78% 75%, rgba(245, 183, 78, 0.28), transparent 36%),
+      linear-gradient(115deg, transparent 0%, rgba(143, 179, 218, 0.15) 38%, rgba(245, 183, 78, 0.18) 62%, transparent 100%);
+    filter: blur(1px);
+  }
 
-            @keyframes particlesMove {
-              from {
-                background-position: 0 0, 40px 60px;
-              }
-              to {
-                background-position: 180px 90px, -90px 190px;
-              }
-            }
+  @media (min-width: 768px) {
+    .hero-particles {
+      animation: particlesMove 32s linear infinite;
+    }
 
-            @keyframes waveMove {
-              from {
-                transform: translate3d(-3%, 8px, 0) scale(1);
-              }
-              to {
-                transform: translate3d(4%, -10px, 0) scale(1.04);
-              }
-            }
+    .hero-wave {
+      animation: waveMove 12s ease-in-out infinite alternate;
+    }
+  }
 
-            @media (prefers-reduced-motion: reduce) {
-              .hero-particles,
-              .hero-wave {
-                animation: none;
-              }
-            }
-          `}</style>
+  @keyframes particlesMove {
+    from {
+      background-position: 0 0, 40px 60px;
+    }
+    to {
+      background-position: 180px 90px, -90px 190px;
+    }
+  }
+
+  @keyframes waveMove {
+    from {
+      transform: translate3d(-3%, 8px, 0) scale(1);
+    }
+    to {
+      transform: translate3d(4%, -10px, 0) scale(1.04);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-particles,
+    .hero-wave {
+      animation: none;
+    }
+  }
+`}</style>
         </section>
 
         <section className="bg-white px-6 py-20 md:py-28">
@@ -580,7 +588,7 @@ setTimeout(() => {
                 ].map((step) => (
                   <div
                     key={step.number}
-                    className="rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 backdrop-blur-sm"
+                    className="rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 md:backdrop-blur-sm"
                   >
                     <div className="flex items-start gap-4">
                       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#F5B74E_0%,#d9982f_100%)] text-sm font-semibold text-[#1a2430] shadow-md shadow-[#F5B74E]/20">
@@ -753,7 +761,7 @@ setTimeout(() => {
         </div>
       </div>
 
-              <div className="rounded-[2rem] border border-white/10 bg-white/[0.08] p-6 shadow-2xl shadow-black/15 backdrop-blur-sm">
+              <div className="rounded-[2rem] border border-white/10 bg-white/[0.08] p-6 shadow-lg md:shadow-2xl md:shadow-black/15 md:backdrop-blur-sm">
                 <div aria-live="polite" aria-atomic="true">
                   {!isSuccess ? (
                     <form onSubmit={handleSubmit} noValidate className="grid gap-4" >  
