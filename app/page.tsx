@@ -1,11 +1,11 @@
 "use client";
 
-
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import WorkStyleCarousel from "./components/WorkStyleCarousel";
+import { motion } from "framer-motion";
 
 declare global {
   interface Window {
@@ -108,7 +108,7 @@ setTimeout(() => {
     {
       question: "Vad gör en marknadskonsult?",
       answer:
-        "En marknadskonsult hjälper företag att få tydligare riktning, bättre struktur och mer fart i marknadsföringen. Både strategiskt och praktiskt.",
+        "En marknadskonsult hjälper företag att få tydligare riktning, bättre struktur och mer fart i marknadsföringen – både strategiskt och praktiskt.",
     },
     {
       question: "Vilka företag passar AXA Consult för?",
@@ -128,7 +128,7 @@ setTimeout(() => {
     {
       question: "Hur vet vi vad som ska prioriteras först?",
       answer:
-        "Det är en viktig del av arbetet. Vi börjar med nuläge, behov och mål,  och prioriterar sedan det som sannolikt gör störst skillnad först.",
+        "Det är en viktig del av arbetet. Vi börjar med nuläge, behov och mål – och prioriterar sedan det som sannolikt gör störst skillnad först.",
     },
     {
       question: "Vad kostar det att anlita AXA Consult?",
@@ -219,10 +219,10 @@ setTimeout(() => {
         className="relative min-h-screen overflow-x-hidden bg-white text-[#1A2430]"
       >
         <div
-  className={`fixed inset-x-0 top-0 z-[160] h-[10px] transition-all duration-700 ease-out ${
-    isLoaded ? "opacity-100" : "opacity-0"
-  }`}
->
+          className={`fixed inset-x-0 top-0 z-[120] h-[10px] transition-all duration-700 ease-out ${
+            isLoaded ? "opacity-100" : "opacity-0"
+          }`}
+        >
           <Image
             src="/line-axa.png"
             alt=""
@@ -306,53 +306,63 @@ setTimeout(() => {
         <Header variant="home" menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
         {/* HERO */}
-     <section className="relative isolate overflow-hidden bg-[#08121d] px-6 pb-28 pt-20 md:px-10 md:pb-32 md:pt-[205px] lg:px-16 lg:pb-36 lg:pt-[235px]">
-  <div className="pointer-events-none absolute inset-0 -z-10">
-    <div className="absolute inset-0 bg-[linear-gradient(135deg,#07111c_0%,#0a1724_38%,#102238_72%,#142b44_100%)]" />
-    <div className="hidden md:block hero-particles absolute inset-0" />
-    <div className="hidden md:block hero-wave absolute inset-x-0 bottom-0 h-[42%]" />
-    <div className="hidden md:block absolute right-[6%] top-[22%] h-[420px] w-[420px] rounded-full bg-[#F5B74E]/20 blur-[140px]" />
-    <div className="hidden md:block absolute left-[2%] bottom-[8%] h-[360px] w-[360px] rounded-full bg-[#8fb3da]/18 blur-[130px]" />
-  </div>
+        <section className="relative overflow-hidden bg-[#08121d] px-6 pb-28 pt-[165px] md:px-10 md:pb-32 md:pt-[205px] lg:px-16 lg:pb-36 lg:pt-[235px]">
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-[linear-gradient(135deg,#07111c_0%,#0a1724_38%,#102238_72%,#142b44_100%)]" />
+            <div className="hero-particles absolute inset-0" />
+            <div className="hero-wave absolute inset-x-0 bottom-0 h-[42%]" />
+            <div className="absolute right-[6%] top-[22%] h-[420px] w-[420px] rounded-full bg-[#F5B74E]/20 blur-[140px]" />
+            <div className="absolute left-[2%] bottom-[8%] h-[360px] w-[360px] rounded-full bg-[#8fb3da]/18 blur-[130px]" />
+          </div>
 
-  <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:items-start">
+          <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-7">
-              <p
-                className={`mb-4 text-[11px] font-medium uppercase tracking-[0.22em] text-[#F5B74E] sm:text-[12px] ${
-                  isLoaded ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-                } transition-all duration-700`}
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="mb-4 text-[11px] font-medium uppercase tracking-[0.22em] text-[#F5B74E] sm:text-[12px]"
               >
                 Marknadskonsult i Uppsala och Falun
-              </p>
+              </motion.p>
 
-              <h1
-                className={`max-w-4xl text-[42px] font-semibold leading-[1.05] tracking-[-0.055em] text-white sm:text-[56px] md:text-[68px] lg:text-[78px] ${
-                  isLoaded ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-                } transition-all duration-700`}
-              >
-                Vi är en byrå.
-                <span className="block bg-gradient-to-r from-[#8fb3da] via-[#dce8f6] to-[#F5B74E] bg-clip-text pb-[0.08em] text-transparent">
+              <h1 className="max-w-4xl text-[42px] font-semibold leading-[1.05] tracking-[-0.055em] text-white sm:text-[56px] md:text-[68px] lg:text-[78px]">
+                <motion.span
+                  className="block"
+                  initial={{ opacity: 0, x: -40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  Vi är en byrå.
+                </motion.span>
+                <motion.span
+                  className="block bg-gradient-to-r from-[#8fb3da] via-[#dce8f6] to-[#F5B74E] bg-clip-text pb-[0.08em] text-transparent"
+                  initial={{ opacity: 0, x: 40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                >
                   Men ändå inte en byrå.
-                </span>
+                </motion.span>
               </h1>
 
-              <p
-                className={`mt-6 max-w-2xl text-[17px] leading-[1.8] text-white/75 sm:text-[18px] md:text-[20px] ${
-                  isLoaded ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-                } transition-all duration-700 delay-100`}
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.85 }}
+                className="mt-6 max-w-2xl text-[17px] leading-[1.8] text-white/75 sm:text-[18px] md:text-[20px]"
               >
-                Vi arbetar med en handfull kunder, för att kunna ge 
-                varje kund den tid de behöver och sitta på deras sida
-                av bordet. Inte bara skicka över en rapport och försvinna. 
-                Oavsett om det gäller SEO, Google Ads, sociala medier, 
-                annonsering eller något annat. Det vi inte gör själva 
-                fixar vi genom vårt stora nätverk.
-              </p>
+                Vi arbetar med en handfull kunder, för att kunna ge varje kund
+                den tid de behöver och sitta på deras sida av bordet. Inte bara
+                skicka över en rapport och försvinna. Oavsett om det gäller SEO,
+                Google Ads, sociala medier, annonsering eller något annat. Det vi
+                inte gör själva fixar vi genom vårt breda nätverk.
+              </motion.p>
 
-              <div
-                className={`mt-8 flex flex-col gap-3 sm:flex-row ${
-                  isLoaded ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-                } transition-all duration-700 delay-150`}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 1.05 }}
+                className="mt-8 flex flex-col gap-3 sm:flex-row"
               >
                 <a
                   href="/boka-mote"
@@ -367,143 +377,127 @@ setTimeout(() => {
                 >
                   Se hur vi hjälper till
                 </a>
-              </div>
+              </motion.div>
             </div>
 
-            <div
-              className={`lg:col-span-5 ${
-                isLoaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-              } transition-all duration-700 delay-300`}
-            >                <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#F5B74E]">
-                  Så kan vi hjälpa till
-                </p>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="lg:col-span-5"
+            >
+              <p className="text-sm font-medium uppercase tracking-[0.18em] text-[#F5B74E]">
+                Så kan vi hjälpa till
+              </p>
 
-                <div className="mt-5 grid gap-3">
-                  {[
-                    {
-                      title: "Rätt prioriteringar",
-                      text: "Vi hjälper er se vad som är viktigast just nu och vad som kan vänta.",
-                      icon: "◎",
-                    },
-                    {
-                      title: "Stöd i det löpande arbetet",
-                      text: "Vi håller ihop marknadsföringen och ser till att det rör sig.",
-                      icon: "↗",
-                    },
-                    {
-                      title: "Från plan till genomförande",
-                      text: "När det inte räcker med idéer, utan också behöver bli något konkret.",
-                      icon: "✦",
-                    },
-                  ].map((item) => (
-                    <div
-                      key={item.title}
-                      className="flex gap-4 rounded-[18px] border border-white/10 bg-white/[0.06] px-4 py-4"
-                    >
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/[0.08] text-[22px] text-[#F5B74E]">
-                        {item.icon}
-                      </div>
-
-                      <div>
-                        <p className="text-[15px] font-medium text-white">
-                          {item.title}
-                        </p>
-                        <p className="mt-1 text-[14px] leading-[1.7] text-white/70">
-                          {item.text}
-                        </p>
-                      </div>
+              <div className="mt-5 grid gap-3">
+                {[
+                  {
+                    title: "Rätt prioriteringar",
+                    text: "Vi hjälper er se vad som är viktigast just nu och vad som kan vänta.",
+                    icon: "◎",
+                  },
+                  {
+                    title: "Stöd i det löpande arbetet",
+                    text: "Vi håller ihop marknadsföringen och ser till att det rör sig.",
+                    icon: "↗",
+                  },
+                  {
+                    title: "Från plan till genomförande",
+                    text: "När det inte räcker med idéer, utan också behöver bli något konkret.",
+                    icon: "✦",
+                  },
+                ].map((item, i) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.7 + i * 0.12 }}
+                    className="flex gap-4 rounded-[18px] border border-white/10 bg-white/[0.06] px-4 py-4"
+                  >
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/[0.08] text-[22px] text-[#F5B74E]">
+                      {item.icon}
                     </div>
-                  ))}
-                </div>
+
+                    <div>
+                      <p className="text-[15px] font-medium text-white">
+                        {item.title}
+                      </p>
+                      <p className="mt-1 text-[14px] leading-[1.7] text-white/70">
+                        {item.text}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
-            </div>
-        
+            </motion.div>
+          </div>
 
           <style jsx>{`
-  .hero-particles {
-    opacity: 0.48;
-    background-image:
-      radial-gradient(circle, rgba(245, 183, 78, 0.48) 1px, transparent 1.8px),
-      radial-gradient(circle, rgba(143, 179, 218, 0.38) 1px, transparent 1.7px),
-      radial-gradient(circle, rgba(255, 255, 255, 0.22) 0.7px, transparent 1.4px);
-    background-size: 96px 88px, 142px 132px, 210px 190px;
-    background-position: 0 0, 42px 64px, 90px 30px;
-  }
+            .hero-particles {
+              opacity: 0.48;
+              background-image:
+                radial-gradient(circle, rgba(245, 183, 78, 0.48) 1px, transparent 1.8px),
+                radial-gradient(circle, rgba(143, 179, 218, 0.38) 1px, transparent 1.7px),
+                radial-gradient(circle, rgba(255, 255, 255, 0.22) 0.7px, transparent 1.4px);
+              background-size: 96px 88px, 142px 132px, 210px 190px;
+              background-position: 0 0, 42px 64px, 90px 30px;
+              animation: particlesMove 32s linear infinite;
+            }
 
-  .hero-wave {
-    opacity: 0.7;
-    background:
-      radial-gradient(ellipse at 20% 85%, rgba(143, 179, 218, 0.32), transparent 34%),
-      radial-gradient(ellipse at 78% 75%, rgba(245, 183, 78, 0.28), transparent 36%),
-      linear-gradient(115deg, transparent 0%, rgba(143, 179, 218, 0.15) 38%, rgba(245, 183, 78, 0.18) 62%, transparent 100%);
-    filter: blur(1px);
-  }
+            .hero-wave {
+              opacity: 0.7;
+              background:
+                radial-gradient(ellipse at 20% 85%, rgba(143, 179, 218, 0.32), transparent 34%),
+                radial-gradient(ellipse at 78% 75%, rgba(245, 183, 78, 0.28), transparent 36%),
+                linear-gradient(115deg, transparent 0%, rgba(143, 179, 218, 0.15) 38%, rgba(245, 183, 78, 0.18) 62%, transparent 100%);
+              filter: blur(1px);
+              animation: waveMove 12s ease-in-out infinite alternate;
+            }
 
-  @media (min-width: 768px) {
-    .hero-particles {
-      animation: particlesMove 32s linear infinite;
-    }
+            @keyframes particlesMove {
+              from { background-position: 0 0, 40px 60px; }
+              to { background-position: 180px 90px, -90px 190px; }
+            }
 
-    .hero-wave {
-      animation: waveMove 12s ease-in-out infinite alternate;
-    }
-  }
+            @keyframes waveMove {
+              from { transform: translate3d(-3%, 8px, 0) scale(1); }
+              to { transform: translate3d(4%, -10px, 0) scale(1.04); }
+            }
 
-  @keyframes particlesMove {
-    from {
-      background-position: 0 0, 40px 60px;
-    }
-    to {
-      background-position: 180px 90px, -90px 190px;
-    }
-  }
-
-  @keyframes waveMove {
-    from {
-      transform: translate3d(-3%, 8px, 0) scale(1);
-    }
-    to {
-      transform: translate3d(4%, -10px, 0) scale(1.04);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero-particles,
-    .hero-wave {
-      animation: none;
-    }
-  }
-`}</style>
+            @media (prefers-reduced-motion: reduce) {
+              .hero-particles, .hero-wave { animation: none; }
+            }
+          `}</style>
         </section>
 
         <section className="bg-white px-6 py-20 md:py-28">
-  <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.4fr_0.3fr_0.3fr]">
-    <div>
-      <p className="text-[12px] font-medium uppercase tracking-[0.24em] text-[#8a5a14]">
-        Varför AXA
-      </p>
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.4fr_0.3fr_0.3fr]">
+            <div>
+              <p className="text-[12px] font-medium uppercase tracking-[0.24em] text-[#8a5a14]">
+                Varför AXA
+              </p>
 
-      <h2 className="mt-4 text-[36px] font-semibold leading-[1.04] tracking-[-0.055em] text-[#0f1724] md:text-[52px]">
-        Vi är det ni vill att vi ska vara.
-      </h2>
-    </div>
+              <h2 className="mt-4 text-[36px] font-semibold leading-[1.04] tracking-[-0.055em] text-[#0f1724] md:text-[52px]">
+                Vi är det ni vill att vi ska vara.
+              </h2>
+            </div>
 
-    <p className="text-[18px] leading-[1.85] text-[#3f4a5a] md:text-[20px]">
-      Hos oss är du inte rad 47 i ett CRM-system. Vi jobbar med ett
-      begränsat antal kunder åt gången, för att vi ska kunna sätta oss
-      in i er verksamhet och bidra med något som gör skillnad.
-    </p>
+            <p className="text-[18px] leading-[1.85] text-[#3f4a5a] md:text-[20px]">
+              Hos oss är du inte rad 47 i ett CRM-system. Vi jobbar med ett
+              begränsat antal kunder åt gången – för att vi ska kunna sätta oss
+              in i er verksamhet och bidra med något som gör skillnad.
+            </p>
 
-    <p className="text-[18px] leading-[1.85] text-[#3f4a5a] md:text-[20px]">
-      Marknadsföring på fler kanaler än bara Google och Meta. Strategi,
-      SEO, annonsering, innehåll, grafik...ja vi hanterar det mesta. Och det
-      vi inte gör själva fixar vi genom vårt nätverk.
-    </p>
-  </div>
-</section>
+            <p className="text-[18px] leading-[1.85] text-[#3f4a5a] md:text-[20px]">
+              Marknadsföring på fler kanaler än bara Google och Meta. Strategi,
+              SEO, annonsering, innehåll, grafik – vi hanterar det mesta. Och det
+              vi inte gör själva fixar vi genom vårt breda nätverk.
+            </p>
+          </div>
+        </section>
 
         <WorkStyleCarousel />
-        
 
         {/* SERVICES */}
         <section
@@ -515,7 +509,7 @@ setTimeout(() => {
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#8a5a14]">
                 Tjänster
               </p>
-              <h2 className="mt-3 text-3xl font-semibold trackinng-tight text-slate-950 sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
                 Det här kör vi med
               </h2>
               <p className="mt-4 text-lg leading-8 text-slate-600">
@@ -588,7 +582,7 @@ setTimeout(() => {
                 ].map((step) => (
                   <div
                     key={step.number}
-                    className="rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 md:backdrop-blur-sm"
+                    className="rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 backdrop-blur-sm"
                   >
                     <div className="flex items-start gap-4">
                       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#F5B74E_0%,#d9982f_100%)] text-sm font-semibold text-[#1a2430] shadow-md shadow-[#F5B74E]/20">
@@ -627,7 +621,7 @@ setTimeout(() => {
                 <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
                   Det gör att vi kan sätta oss in i verksamheten, förstå
                   prioriteringarna och bidra med både strategi och genomförande.
-                  Målet är inte att göra mer, utan att göra rätt. Alla våra kunder är viktiga.
+                  Målet är inte att göra mer – utan att göra rätt. Alla våra kunder är viktiga.
                 </p>
               </div>
 
@@ -698,73 +692,72 @@ setTimeout(() => {
           </div>
         </section>
 
-      {/* CONTACT */}
-<section
-  id="contact"
-  className="relative overflow-hidden bg-[linear-gradient(135deg,#13202c_0%,#1b2c3d_55%,#29405c_100%)] text-white"
->
-  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,183,78,0.14),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.05),transparent_30%)]" />
+        {/* CONTACT */}
+        <section
+          id="contact"
+          className="relative overflow-hidden bg-[linear-gradient(135deg,#13202c_0%,#1b2c3d_55%,#29405c_100%)] text-white"
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,183,78,0.14),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.05),transparent_30%)]" />
 
-  <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8">
-    <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-      <div>
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#f0d9ad]">
-          Kontakt
-        </p>
+          <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8">
+            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#f0d9ad]">
+                  Kontakt
+                </p>
 
-        <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-          Låter det här som något för er?
-        </h2>
+                <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+                  Låter det här som något för er?
+                </h2>
 
-        <p className="mt-4 max-w-xl text-lg leading-8 text-slate-200">
-          Hör av dig så pratar vi. Inget sälj, inget krånge.
-          Bara ett samtal om vart ni står och vad ni behöver.
-        </p>
+                <p className="mt-4 max-w-xl text-lg leading-8 text-slate-200">
+                  Hör av dig så pratar vi. Bara ett samtal om vart ni står och vad ni behöver.
+                </p>
 
-        <div className="mt-8 space-y-3 text-slate-200">
-          <p>
-            <span className="font-semibold text-white">Telefon:</span>{" "}
-            <a
-              href="tel:+46760353560"
-              onClick={() =>
-                trackEvent("click_phone", {
-                  contact_type: "phone",
-                  contact_value: "+46760353560",
-                })
-              }
-              className="underline underline-offset-4 transition hover:text-[#F5B74E]"
-            >
-              +46 (0)760 35 35 60
-            </a>
-          </p>
+                <div className="mt-8 space-y-3 text-slate-200">
+                  <p>
+                    <span className="font-semibold text-white">Telefon:</span>{" "}
+                    <a
+                      href="tel:+46760353560"
+                      onClick={() =>
+                        trackEvent("click_phone", {
+                          contact_type: "phone",
+                          contact_value: "+46760353560",
+                        })
+                      }
+                      className="underline underline-offset-4 transition hover:text-[#F5B74E]"
+                    >
+                      +46 (0)760 35 35 60
+                    </a>
+                  </p>
 
-          <p>
-            <span className="font-semibold text-white">E-post:</span>{" "}
-            <a
-              href="mailto:info@axaconsult.se"
-              onClick={() =>
-                trackEvent("click_email", {
-                  contact_type: "email",
-                  contact_value: "info@axaconsult.se",
-                })
-              }
-              className="underline underline-offset-4 transition hover:text-[#F5B74E]"
-            >
-              info@axaconsult.se
-            </a>
-          </p>
+                  <p>
+                    <span className="font-semibold text-white">E-post:</span>{" "}
+                    <a
+                      href="mailto:info@axaconsult.se"
+                      onClick={() =>
+                        trackEvent("click_email", {
+                          contact_type: "email",
+                          contact_value: "info@axaconsult.se",
+                        })
+                      }
+                      className="underline underline-offset-4 transition hover:text-[#F5B74E]"
+                    >
+                      info@axaconsult.se
+                    </a>
+                  </p>
 
-          <p>
-            <span className="font-semibold text-white">Plats:</span>{" "}
-            Uppsala & Falun
-          </p>
-        </div>
-      </div>
+                  <p>
+                    <span className="font-semibold text-white">Plats:</span>{" "}
+                    Uppsala & Falun
+                  </p>
+                </div>
+              </div>
 
-              <div className="rounded-[2rem] border border-white/10 bg-white/[0.08] p-6 shadow-lg md:shadow-2xl md:shadow-black/15 md:backdrop-blur-sm">
+              <div className="rounded-[2rem] border border-white/10 bg-white/[0.08] p-6 shadow-2xl shadow-black/15 backdrop-blur-sm">
                 <div aria-live="polite" aria-atomic="true">
                   {!isSuccess ? (
-                    <form onSubmit={handleSubmit} noValidate className="grid gap-4" >  
+                    <form onSubmit={handleSubmit} noValidate className="grid gap-4">
                       {submitError && (
                         <div
                           role="alert"
@@ -824,32 +817,33 @@ setTimeout(() => {
                           placeholder="Berätta kort vad du vill ha hjälp med"
                         />
                       </div>
-<div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-  <div className="flex items-start gap-3">
-    <input
-      id="privacy"
-      name="privacy"
-      type="checkbox"
-      checked={acceptedPrivacy}
-      onChange={(e) => {
-        setAcceptedPrivacy(e.target.checked);
-        if (e.target.checked) setSubmitError("");
-      }}
-      className="mt-1 h-4 w-4 rounded border-white/20 bg-white/[0.06] accent-[#F5B74E]"
-    />
 
-    <label htmlFor="privacy" className="text-sm leading-6 text-white/75">
-      Jag godkänner att AXA Consult behandlar mina uppgifter enligt{" "}
-      <a
-        href="/integritetspolicy"
-        className="font-medium text-[#F5B74E] underline underline-offset-4 transition hover:text-white"
-      >
-        integritetspolicyn
-      </a>
-      .
-    </label>
-  </div>
-</div>
+                      <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                        <div className="flex items-start gap-3">
+                          <input
+                            id="privacy"
+                            name="privacy"
+                            type="checkbox"
+                            checked={acceptedPrivacy}
+                            onChange={(e) => {
+                              setAcceptedPrivacy(e.target.checked);
+                              if (e.target.checked) setSubmitError("");
+                            }}
+                            className="mt-1 h-4 w-4 rounded border-white/20 bg-white/[0.06] accent-[#F5B74E]"
+                          />
+                          <label htmlFor="privacy" className="text-sm leading-6 text-white/75">
+                            Jag godkänner att AXA Consult behandlar mina uppgifter enligt{" "}
+                            <a
+                              href="/integritetspolicy"
+                              className="font-medium text-[#F5B74E] underline underline-offset-4 transition hover:text-white"
+                            >
+                              integritetspolicyn
+                            </a>
+                            .
+                          </label>
+                        </div>
+                      </div>
+
                       <button
                         type="submit"
                         disabled={isSubmitting}
@@ -874,7 +868,6 @@ setTimeout(() => {
                       <p className="mt-4 text-white/75">
                         Jag återkommer så snart jag kan.
                       </p>
-
                       <button
                         type="button"
                         onClick={() => setIsSuccess(false)}
