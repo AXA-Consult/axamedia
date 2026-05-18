@@ -60,9 +60,10 @@ export default function BokaMote() {
       }
 
       trackEvent("generate_lead", {
-  form_name: "booking_form",
-  form_location: "booking_page",
-});
+        form_name: "booking_form",
+        form_location: "booking_page",
+      });
+
       setIsSuccess(true);
       setAcceptedPrivacy(false);
 
@@ -122,10 +123,10 @@ export default function BokaMote() {
                   </p>
 
                   <h1 className="mt-3 text-[42px] font-semibold leading-[0.95] tracking-[-0.05em] md:text-[64px]">
-  Bara ett samtal
-  <br />
-  om vad ni behöver.
-</h1>
+                    Bara ett samtal
+                    <br />
+                    om vad ni behöver.
+                  </h1>
 
                   <p className="mt-6 max-w-2xl text-[18px] leading-[1.8] text-white/80 md:text-[20px]">
                     Vi pratar om vart ni står, vad som inte fungerar och
@@ -272,28 +273,27 @@ export default function BokaMote() {
                       >
                         {isSubmitting ? "Skickar..." : "Skicka förfrågan"}
                       </button>
+
                       <div className="border-t border-[#ddd6cc] pt-5">
-  <p className="mb-3 text-sm text-[#2f2f35]/75">
-    Vill du hellre boka en tid direkt i kalendern?
-  </p>
+                        <p className="mb-3 text-sm text-[#2f2f35]/75">
+                          Vill du hellre boka en tid direkt i kalendern?
+                        </p>
 
-  <a
-    href="https://outlook.office.com/bookwithme/user/90e6dd1aa16b4e24b37a37e47b12928d@axaconsult.se/meetingtype/dzez0tJUQ0OBLcMcVAeM5w2?anonymous&ismsaljsauthenabled&ep=mlink"
-    target="_blank"
-    rel="noopener noreferrer"
-    onClick={() =>
-      trackEvent("click_booking_calendar", {
-        link_location: "booking_page_form",
-      })
-    }
-    className="inline-flex w-full items-center justify-center rounded-full border border-[#cfc6ba] bg-white px-6 py-3 text-sm font-medium text-[#1A2430] transition hover:bg-[#f8f3ea]"
-  >
-    Öppna kalendern
-  </a>
-</div>
+                        <a
+                          href="https://outlook.office.com/bookwithme/user/90e6dd1aa16b4e24b37a37e47b12928d@axaconsult.se/meetingtype/dzez0tJUQ0OBLcMcVAeM5w2?anonymous&ismsaljsauthenabled&ep=mlink"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() =>
+                            trackEvent("click_booking_calendar", {
+                              link_location: "booking_page_form",
+                            })
+                          }
+                          className="inline-flex w-full items-center justify-center rounded-full border border-[#cfc6ba] bg-white px-6 py-3 text-sm font-medium text-[#1A2430] transition hover:bg-[#f8f3ea]"
+                        >
+                          Öppna kalendern
+                        </a>
+                      </div>
                     </form>
-
-                    
                   ) : (
                     <div className="rounded-[22px] border border-[#ddd6cc] bg-[#f7f3eb] p-6 text-[#0f172a]">
                       <p className="text-[11px] uppercase tracking-[0.2em] text-[#8a5a14]">
@@ -329,6 +329,9 @@ export default function BokaMote() {
 
         <Footer />
 
+        {/* FIX: Animationer är AV som standard, PÅ endast om användaren tillåter rörelse.
+            Lighthouse kör med prefers-reduced-motion: reduce, vilket tidigare höll
+            CPU:n aktiv hela testet och orsakade "No CPU idle period"-felet. */}
         <style jsx>{`
           .hero-particles {
             opacity: 0.48;
@@ -338,7 +341,7 @@ export default function BokaMote() {
               radial-gradient(circle, rgba(255, 255, 255, 0.22) 0.7px, transparent 1.4px);
             background-size: 96px 88px, 142px 132px, 210px 190px;
             background-position: 0 0, 42px 64px, 90px 30px;
-            animation: particlesMove 32s linear infinite;
+            animation: none;
           }
 
           .hero-wave {
@@ -348,7 +351,7 @@ export default function BokaMote() {
               radial-gradient(ellipse at 78% 75%, rgba(245, 183, 78, 0.28), transparent 36%),
               linear-gradient(115deg, transparent 0%, rgba(143, 179, 218, 0.15) 38%, rgba(245, 183, 78, 0.18) 62%, transparent 100%);
             filter: blur(1px);
-            animation: waveMove 12s ease-in-out infinite alternate;
+            animation: none;
           }
 
           @keyframes particlesMove {
@@ -369,10 +372,12 @@ export default function BokaMote() {
             }
           }
 
-          @media (prefers-reduced-motion: reduce) {
-            .hero-particles,
+          @media (prefers-reduced-motion: no-preference) {
+            .hero-particles {
+              animation: particlesMove 32s linear infinite;
+            }
             .hero-wave {
-              animation: none;
+              animation: waveMove 12s ease-in-out infinite alternate;
             }
           }
         `}</style>

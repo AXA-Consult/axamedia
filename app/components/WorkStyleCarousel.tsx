@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 type Slide = {
   title: string;
@@ -30,24 +30,18 @@ const slides: Slide[] = [
   },
 ];
 
-const AUTOPLAY_MS = 7000;
-
 export default function WorkStyleCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [hasInteracted, setHasInteracted] = useState(false);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const cardWidths = useMemo(
-    () => ({
-      mobile: 292,
-      tablet: 460,
-      desktop: 930,
-    }),
+    () => ({ mobile: 292, tablet: 460, desktop: 930 }),
     []
   );
-
   const [cardWidth, setCardWidth] = useState(cardWidths.desktop);
 
-  (*/ useEffect(() => {
+  // FIX 1: Syntaxfelet är borta — ren useEffect för resize
+  useEffect(() => {
     const updateCardWidth = () => {
       if (window.innerWidth < 768) {
         setCardWidth(cardWidths.mobile);
@@ -57,35 +51,30 @@ export default function WorkStyleCarousel() {
         setCardWidth(cardWidths.desktop);
       }
     };
-
     updateCardWidth();
-
     window.addEventListener("resize", updateCardWidth);
-
     return () => window.removeEventListener("resize", updateCardWidth);
   }, [cardWidths]);
 
- /*
-useEffect(() => {
-  const timer = setInterval(() => {
-    setActiveIndex((prev) => (prev + 1) % slides.length);
-  }, AUTOPLAY_MS);
-
-  return () => clearInterval(timer);
-}, []);
-*/
+  // FIX 2: Kontrollera video via refs istället för att mounta om elementet
+  useEffect(() => {
+    videoRefs.current.forEach((video, index) => {
+      if (!video) return;
+      if (index === activeIndex) {
+        video.currentTime = 0;
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  }, [activeIndex]);
 
   function goPrev() {
-    setHasInteracted(true);
-
-    setActiveIndex((prev) =>
-      prev === 0 ? slides.length - 1 : prev - 1
-    );
+    setActiveIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   }
 
   function goNext() {
-    setHasInteracted(true);
-
     setActiveIndex((prev) => (prev + 1) % slides.length);
   }
 
@@ -106,11 +95,9 @@ useEffect(() => {
               <p className="text-[12px] font-medium uppercase tracking-[0.24em] text-[#8a5a14]">
                 Så jobbar vi
               </p>
-
               <h2 className="mt-3 text-[32px] font-semibold leading-[1.04] tracking-[-0.04em] text-[#0f1724] md:text-[44px] lg:text-[52px]">
                 Ett närmare sätt att arbeta med marknadsföring
               </h2>
-
               <p className="mt-5 max-w-3xl text-[17px] leading-[1.8] text-[#5b6678] md:text-[19px]">
                 Nära, brett och utan onödiga möten. Ni ska alltid veta vad som
                 händer och varför.
@@ -127,7 +114,6 @@ useEffect(() => {
               >
                 ←
               </button>
-
               <button
                 type="button"
                 onMouseDown={(e) => e.preventDefault()}
@@ -144,14 +130,12 @@ useEffect(() => {
             <div
               className="flex gap-4 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] md:gap-6"
               style={{
-                transform: `translate3d(-${
-                  activeIndex * (cardWidth + 24)
-                }px, 0, 0)`,
+                transform: `translate3d(-${activeIndex * (cardWidth + 24)}px, 0, 0)`,
               }}
             >
               {slides.map((slide, index) => (
                 <div
-                  key={`${slide.title}-${index}`}
+                  key={slide.title}
                   role="group"
                   aria-roledescription="slide"
                   aria-label={`${index + 1} av ${slides.length}`}
@@ -163,7 +147,6 @@ useEffect(() => {
                       <h3 className="mb-4 max-w-[14ch] text-[22px] font-semibold leading-[1.12] tracking-[-0.03em] text-[#111827] md:text-[26px] lg:text-[32px]">
                         {slide.title}
                       </h3>
-
                       <p className="mb-4 max-w-md text-[15px] leading-[1.75] text-[#5f6b7b] md:text-[16px]">
                         {slide.text}
                       </p>
@@ -171,25 +154,22 @@ useEffect(() => {
                       <div className="mt-auto flex gap-2">
                         {slides.map((_, dotIndex) => (
                           <button
-  key={dotIndex}
-  type="button"
-  onMouseDown={(e) => e.preventDefault()}
-  onClick={() => {
-    setHasInteracted(true);
-    setActiveIndex(dotIndex);
-  }}
-  aria-label={`Gå till slide ${dotIndex + 1}`}
-  aria-pressed={activeIndex === dotIndex}
-  className="flex h-11 w-11 items-center justify-center rounded-full"
->
-  <span
-    className={`h-2.5 rounded-full transition-all ${
-      activeIndex === dotIndex
-        ? "w-8 bg-[#F5B74E]"
-        : "w-2.5 bg-[#d7cdb8]"
-    }`}
-  />
-</button>
+                            key={dotIndex}
+                            type="button"
+                            onMouseDown={(e) => e.preventDefault()}
+                            onClick={() => setActiveIndex(dotIndex)}
+                            aria-label={`Gå till slide ${dotIndex + 1}`}
+                            aria-pressed={activeIndex === dotIndex}
+                            className="flex h-11 w-11 items-center justify-center rounded-full"
+                          >
+                            <span
+                              className={`h-2.5 rounded-full transition-all ${
+                                activeIndex === dotIndex
+                                  ? "w-8 bg-[#F5B74E]"
+                                  : "w-2.5 bg-[#d7cdb8]"
+                              }`}
+                            />
+                          </button>
                         ))}
                       </div>
 
@@ -203,7 +183,6 @@ useEffect(() => {
                         >
                           ←
                         </button>
-
                         <button
                           type="button"
                           onMouseDown={(e) => e.preventDefault()}
@@ -216,16 +195,18 @@ useEffect(() => {
                       </div>
                     </div>
 
+                    {/* FIX 3: Stabil key, loop=false, ingen autoPlay — styrs av useEffect via ref */}
                     <video
-  key={`${slide.videoSrc}-${activeIndex === index ? "active" : "inactive"}-${hasInteracted ? "manual" : "auto"}-${index}`}
-  className="order-1 aspect-[16/10] w-full rounded-[20px] object-cover xl:order-2 lg:rounded-[24px]"
-  src={activeIndex === index ? slide.videoSrc : undefined}
-  poster={slide.poster}
-  muted
-  playsInline
-  autoPlay={activeIndex === index}
-  preload="none"
-/>
+                      key={slide.videoSrc}
+                      ref={(el) => { videoRefs.current[index] = el; }}
+                      className="order-1 aspect-[16/10] w-full rounded-[20px] object-cover xl:order-2 lg:rounded-[24px]"
+                      src={slide.videoSrc}
+                      poster={slide.poster}
+                      muted
+                      playsInline
+                      loop={false}
+                      preload="none"
+                    />
                   </div>
                 </div>
               ))}
