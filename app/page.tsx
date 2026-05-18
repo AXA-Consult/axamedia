@@ -1,11 +1,8 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
+import WorkStyleCarousel from "./components/WorkStyleCarousel";
 import ContactForm from "./components/ContactForm";
-import dynamic from "next/dynamic";
-const WorkStyleCarousel = dynamic(() => import("./components/WorkStyleCarousel"), {
-  ssr: false,
-});
 import MobileMenu from "./components/MobileMenu";
 
 const faqItems = [
